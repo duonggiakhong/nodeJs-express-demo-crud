@@ -1,0 +1,6 @@
+// fire configs for Engine
+{
+    "presets": [
+        "@babel/preset-env"
+    ]
+}
