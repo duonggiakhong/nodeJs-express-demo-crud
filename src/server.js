@@ -1,5 +1,6 @@
 import express from 'express';
 import configViewEngine from './configs/ViewEngine';
+import initwebRouter from './route/web';
 //2
 require('dotenv').config();
 
@@ -7,16 +8,11 @@ const path = require('path');
 const app = express()
 //2
 const port = process.env.PORT || 6969;
-
+//setup viewEngine
 configViewEngine(app);
 
-app.get('/about', (req, res) => {
-    res.send('Hello "Gia Cat TS"')
-})
-
-app.get('/', (req, res) => {
-    res.render('test/index.ejs')
-})
+//init web router
+initwebRouter(app);
 
 app.get('/index.html', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'));
