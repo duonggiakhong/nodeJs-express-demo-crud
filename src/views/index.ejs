@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodejsBasic-GiaCat</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div class="container">
+        <img src="https://s3-us-east-2.amazonaws.com/designevo/projects/uid-3684270/4411c03740de9a952e8fdfa25f9424c7/preview.png?t=1686339986081" alt="">
+    </div>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+      </div>
+          <!-- <%= dataUser %> -->
+        <div class="w3-container">
+            <h2>List user table</h2>
+        
+            <table class="w3-table-all w3-hoverable">
+            <thead>
+                <tr class="w3-light-grey">
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0; i < dataUser.length; i++) { %>
+                    <tr>
+                      <td><%= dataUser[i].id %></td>
+                      <td><%= dataUser[i].firstName %></td>
+                      <td><%= dataUser[i].lastName %></td>
+                      <td><%= dataUser[i].email %></td>
+                      <td><%= dataUser[i].address %></td>
+                      <td>
+                        <button type="button"><a href="detail/user/<%= dataUser[i].id %>" target="_blank">Detail</a> </button>
+                        <button type="button">Edit</button>
+                        <button type="button">Delete</button>
+                      </td>
+                    </tr>
+                 <% } %>
+            </tbody>
+            </table>
+        </div>
+  
+
+
+    
+</body>
+</html>
