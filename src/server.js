@@ -10,6 +10,11 @@ const path = require('path');
 const app = express()
 //2
 const port = process.env.PORT || 6969;
+
+//form
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 //setup viewEngine
 configViewEngine(app);
 

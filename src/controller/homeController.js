@@ -1,41 +1,33 @@
-import connection from "../configs/connectDB";
+import { json } from "body-parser";
+import pool from "../configs/connectDB";
 
-let getHomePage = (req, res) => {
+let getHomePage = async (req, res) => {
     //logic
-    //3 creat variable data
-    let data = [];
-    //3 connect database
-    connection.query(
-        'SELECT * FROM `users`',
-        function (err, results, fields) {
-            console.log('check mysql:')
-            console.log(results); // results contains rows returned by server
-            results.map((row) => {
-                data.push({
-                    id: row.id,
-                    email: row.email,
-                    address: row.address,
-                    firstName: row.firstName,
-                    lastName: row.lastName,
-                })
-            });
-            // console.log('check mysql:', data)
-            return res.render('index.ejs', { dataUser: data })
-        }
-    );
+    const [rows, fields] = await pool.execute('SELECT * FROM `users`');
+    return res.render('index.ejs', { dataUser: rows });
 
 }
-
-
-
-
 
 let getAboutPage = (req, res) => {
     //logic
     return res.send('Hello "Gia Cat TS"');
 }
 
+let getDetailPage = async (req, res) => {
+    let id = req.params.id;
+    let user = await pool.execute('SELECT * FROM users WHERE id = ?', [id]);
+    return res.send(JSON.stringify(user[0]));
+}
+let CreateNewuser = async (req, res) => {
+
+    let { firstName, lastName, email, address } = req.body;
+    await pool.execute('INSERT INTO users (firstName, lastName, email, address) values (?,?,?,?)', [firstName, lastName, email, address]);
+    return res.render('/');
+}
+
 module.exports = {
     getHomePage,
-    getAboutPage
+    getAboutPage,
+    getDetailPage,
+    CreateNewuser,
 }
