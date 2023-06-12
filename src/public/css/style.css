@@ -1,4 +1,14 @@
-/* form */
+.update-user-container label{
+  display: block;
+}
+.update-user-container{
+  text-align: center;
+}
+.update-user-container .btn-submit {
+  margin-top: 15px;
+  cursor: pointer;
+}
+/* form edit */
 .create-user-container label{
   display: block;
 }
