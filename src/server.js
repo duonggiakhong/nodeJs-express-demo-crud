@@ -1,6 +1,7 @@
 import express from 'express';
 import configViewEngine from './configs/ViewEngine';
 import initwebRouter from './route/web';
+import initApiRouter from './route/api';
 //3
 // import connection from './configs/connectDB';
 //2
@@ -20,6 +21,9 @@ configViewEngine(app);
 
 //init web router
 initwebRouter(app);
+
+//init api web 
+initApiRouter(app);
 
 app.get('/index.html', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'));
