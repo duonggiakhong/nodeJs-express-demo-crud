@@ -13,6 +13,8 @@ const initwebRouter = (app) => {
     router.get('/edit-user/:id', homeController.editUser);
     //update user
     router.post('/update-user', homeController.updateUserPage);
+    //uploadFile
+    router.get('/uploadfile', homeController.uploadFilePage);
     return app.use('/', router);
 }
 

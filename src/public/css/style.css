@@ -1,3 +1,11 @@
+/* uploadFile */
+.upload-file-contact label{
+  display: block;
+}
+.upload-file-contact .btn-submit{
+  padding-top: 20px;
+}
+/* update user */
 .update-user-container label{
   display: block;
 }

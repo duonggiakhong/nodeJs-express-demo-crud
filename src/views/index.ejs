@@ -1,81 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NodejsBasic-GiaCat</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-</head>
-<body>
-    <div class="container">
-        <img src="https://s3-us-east-2.amazonaws.com/designevo/projects/uid-3684270/4411c03740de9a952e8fdfa25f9424c7/preview.png?t=1686339986081" alt="">
-    </div>
-    <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-      </div>
-          <!-- <%= dataUser %> -->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NodejsBasic-GiaCat</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    </head>
+    <body>
+        <div class="container">
+            <img
+                src="https://s3-us-east-2.amazonaws.com/designevo/projects/uid-3684270/4411c03740de9a952e8fdfa25f9424c7/preview.png?t=1686339986081"
+                alt>
+        </div>
+        <div class="topnav">
+            <a class="active" href="/">Home</a>
+            <a href="/uploadfile">UploadFile</a>
+        </div>
+        <!-- <%= dataUser %> -->
         <div class="w3-container">
             <h2>List user table</h2>
-        
+
             <table class="w3-table-all w3-hoverable">
-            <thead>
-                <tr class="w3-light-grey">
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for(let i=0; i < dataUser.length; i++) { %>
-                    <tr>
-                      <td><%= dataUser[i].id %></td>
-                      <td><%= dataUser[i].firstName %></td>
-                      <td><%= dataUser[i].lastName %></td>
-                      <td><%= dataUser[i].email %></td>
-                      <td><%= dataUser[i].address %></td>
-                      <td >
-                        <button type="button"><a href="detail/user/<%= dataUser[i].id %>" >Detail</a> </button>
-                        <!-- tag (target="_blank") use open new tab -->
-                        <form action="/edit-user/<%= dataUser[i].id %>" method="GET">
-                            <button type="submit">Edit</button>
-                        </form>
-                        <form action="/delete-user" method="POST">
-                            <input type="text" hidden value="<%= dataUser[i].id %>" name="userId">
-                            <button type="submit">Delete</button>
-                        </form>
-                      </td>
+                <thead>
+                    <tr class="w3-light-grey">
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Actions</th>
                     </tr>
-                 <% } %>
-            </tbody>
+                </thead>
+                <tbody>
+                    <% for(let i=0; i < dataUser.length; i++) { %>
+                    <tr>
+                        <td><%= dataUser[i].id %></td>
+                        <td><%= dataUser[i].firstName %></td>
+                        <td><%= dataUser[i].lastName %></td>
+                        <td><%= dataUser[i].email %></td>
+                        <td><%= dataUser[i].address %></td>
+                        <td>
+                            <button type="button"><a
+                                    href="detail/user/<%= dataUser[i].id %>">Detail</a>
+                            </button>
+                            <!-- tag (target="_blank") use open new tab -->
+                            <form action="/edit-user/<%= dataUser[i].id %>"
+                                method="GET">
+                                <button type="submit">Edit</button>
+                            </form>
+                            <form action="/delete-user" method="POST">
+                                <input type="text" hidden
+                                    value="<%= dataUser[i].id %>" name="userId">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
             </table>
         </div>
-  
+
         <div class="w3-container">
             <div class="create-user-container">
                 <div class="title">Create user new:</div>
                 <form action="/create-new-user" method="POST">
                     <div>
-                        <label for="">FirstName</label>
+                        <label for>FirstName</label>
                         <input type="text" name="firstName">
                     </div>
                     <div>
-                        <label for="">LastName</label>
+                        <label for>LastName</label>
                         <input type="text" name="lastName">
                     </div>
                     <div>
-                        <label for="">Email</label>
+                        <label for>Email</label>
                         <input type="text" name="email">
                     </div>
                     <div>
-                        <label for="">Address</label>
+                        <label for>Address</label>
                         <input type="text" name="address">
                     </div>
                     <div>
@@ -85,7 +89,5 @@
             </div>
         </div>
 
-
-    
-</body>
+    </body>
 </html>
