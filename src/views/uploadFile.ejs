@@ -20,13 +20,27 @@
         </div>
         <div class="w3-container">
             <div class="upload-file-contact">
-                <form action>
-                    <label for>Avatar:</label>
-                    <input type="file">
-                    <div class="btn-submit">
-                        <button class="submit">Submit</button>
+                <form method="POST" action="/upload-profile-pic" enctype="multipart/form-data">
+                    <div>
+                        <label>Select your profile picture:</label>
+                        <input type="file" name="profile_pic" />
+                    </div>
+                    <div>
+                        <input type="submit" name="btn_upload_profile_pic" value="Upload" />
                     </div>
                 </form>
+
+
+                <form method="POST" action="/upload-multiple-images" enctype="multipart/form-data">
+                    <div>
+                        <label>Select multiple images:</label>
+                        <input type="file" name="multiple_images" multiple />
+                    </div>
+                    <div>
+                        <input type="submit" name="btn_upload_multiple_images" value="Upload" />
+                    </div>
+                </form>
+                
             </div>
         </div>
     </body>
