@@ -44,6 +44,8 @@ const initwebRouter = (app) => {
 
     router.post('/upload-profile-pic', upload.single('profile_pic'), homeController.handleUploadFile);
 
+    router.post('/upload-multiple-images', upload.array('multiple_images', 10), homeController.handleUploadMultipleFile);
+
 
     return app.use('/', router);
 }

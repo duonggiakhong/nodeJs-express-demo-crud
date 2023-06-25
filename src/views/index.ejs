@@ -41,7 +41,10 @@
                         <td><%= dataUser[i].lastName %></td>
                         <td><%= dataUser[i].email %></td>
                         <td><%= dataUser[i].address %></td>
-                        <td>
+                        <td style="
+                                display: flex;
+                                gap: 14px;
+                            ">
                             <button type="button"><a
                                     href="detail/user/<%= dataUser[i].id %>">Detail</a>
                             </button>
